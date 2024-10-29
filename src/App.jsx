@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function App() {
+  // todo들을 담아서 뿌려줄 state 만들기
 	const [todos, setTodos] = useState([]);
 
 	return (
