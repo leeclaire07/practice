@@ -14,7 +14,7 @@ function App() {
 	// 삭제 함수 만들고 버튼에 엮기
 	const handleRemoveTodo = (target) => {
 		// create 때와 마찬가지로 todos를 변경하는 것이므로 setTodos를 사용한다
-		// filter를 이용해 target에 해당하는 todo를 걸러준다
+		// filter를 이용해 todo.id !== target 조건식이 true인 객체만으로 이루어진 배열을 setTodos 해준다
 		setTodos(todos.filter((todo) => todo.id !== target));
 	};
 
