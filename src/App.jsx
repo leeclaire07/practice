@@ -7,16 +7,39 @@ function App() {
 	const textChange = (e) => {
 		setText(e.target.value);
 	};
+
 	const handleAddTodo = () => {
-		setTodos([...todos, { id: crypto.randomUUID(), title: text }]);
+		setTodos([
+			...todos,
+			{ id: crypto.randomUUID(), title: text, isDone: false },
+		]);
 	};
 
-	// 삭제 함수 만들고 버튼에 엮기
 	const handleRemoveTodo = (target) => {
-		// create 때와 마찬가지로 todos를 변경하는 것이므로 setTodos를 사용한다
-		// filter를 이용해 todo.id !== target 조건식이 true인 객체만으로 이루어진 배열을 setTodos 해준다
 		setTodos(todos.filter((todo) => todo.id !== target));
 	};
+
+	const handleTodoIsDone = (target) => {
+		const updatedTodos = todos.map((todo) => {
+			// todo의 id가 target이랑 같으면 객체의 isDone만 true로 바꿔서 return 해준다
+			if (todo.id === target) {
+				return { ...todo, isDone: true };
+				// 나머지는 그냥 return 해준다
+			} else {
+				return todo;
+			}
+		});
+
+		setTodos(updatedTodos);
+	};
+
+	// 간지 버전
+	// const handleTodoIsDone = (target) => {
+	// 	const updatedTodos = todos.map((todo) =>
+	// 		todo.id === target ? { ...todo, isDone: true } : todo
+	// 	);
+	// 	setTodos(updatedTodos);
+	// };
 
 	return (
 		<>
@@ -25,7 +48,10 @@ function App() {
 			{todos.map((todo) => {
 				return (
 					<li key={todo.id}>
-						<h4>{todo.title}</h4>
+						<h4 style={{ textDecoration: todo.isDone && "line-through" }}>
+							{todo.title}
+						</h4>
+						<button onClick={() => handleTodoIsDone(todo.id)}>완료</button>
 						<button onClick={() => handleRemoveTodo(todo.id)}>삭제</button>
 					</li>
 				);
