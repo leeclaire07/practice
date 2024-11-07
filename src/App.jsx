@@ -37,6 +37,8 @@ function App() {
 						<h4 style={{ textDecoration: todo.isDone && "line-through" }}>
 							{todo.title}
 						</h4>
+
+						{/* update */}
 						<button
 							onClick={() => {
 								const updatedTodos = todos.map((prev) => {
@@ -54,6 +56,7 @@ function App() {
 						>
 							완료
 						</button>
+
 						<button
 							onClick={() => {
 								setTodos(todos.filter((prev) => prev.id !== todo.id));
