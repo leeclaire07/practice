@@ -29,6 +29,8 @@ function App() {
 						<h4 style={{ textDecoration: todo.isDone && "line-through" }}>
 							{todo.title}
 						</h4>
+
+						{/* delete */}
 						<button
 							// 삭제 함수 만들고 버튼에 엮기
 							onClick={() => {
@@ -39,6 +41,7 @@ function App() {
 						>
 							삭제
 						</button>
+						
 					</li>
 				);
 			})}
