@@ -15,7 +15,10 @@ function App() {
 			/>
 			<button
 				onClick={() => {
-					setTodos([...todos, { id: crypto.randomUUID(), title: text }]);
+					setTodos([
+						...todos,
+						{ id: crypto.randomUUID(), title: text, isDone: false },
+					]);
 				}}
 			>
 				추가
