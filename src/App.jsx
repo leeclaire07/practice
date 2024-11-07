@@ -21,7 +21,10 @@ function App() {
 				onClick={() => {
 					// todos 짝꿍인 setTodos로 todos 변경하기
 					// 스프레드 어쩌구로 기존에 있던 todos 풀어주고 input으로 받은 text로 새로운 todo 만들기
-					setTodos([...todos, { id: crypto.randomUUID(), title: text }]);
+					setTodos([
+						...todos,
+						{ id: crypto.randomUUID(), title: text, isDone: false },
+					]);
 				}}
 			>
 				추가
