@@ -16,6 +16,8 @@ function App() {
 					setText(e.target.value);
 				}}
 			/>
+
+			{/* create */}
 			<button
 				// 버튼 만들어서 todos state에 input value 추가하기
 				onClick={() => {
@@ -29,6 +31,7 @@ function App() {
 			>
 				추가
 			</button>
+
 			{todos.map((todo) => {
 				return (
 					<li key={todo.id}>
